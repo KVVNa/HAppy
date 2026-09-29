@@ -4,27 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f5f4ef">
-<title>18時の味方 — 朝から、ご褒美まで。</title>
+<title>Mikata — 朝から、ご褒美まで。</title>
 <link rel="stylesheet" href="./styles.css">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
 </head>
 <body>
 <div class="shell">
 <aside class="sidebar">
- <div><div class="brand"><span class="brand-icon" aria-hidden="true">◒</span>18時の味方</div><p class="side-caption">朝から、ご褒美まで。</p></div>
+ <div><div class="brand"><span class="brand-icon" aria-hidden="true">◒</span>Mikata</div><p class="side-caption">朝から、ご褒美まで。</p></div>
  <nav class="nav" aria-label="ページ内メニュー"><a href="#home">◷　今日の道しるべ</a><a href="#morning">☀　朝の準備</a><a href="#work">✎　仕事に集中</a><a href="#tomorrow">✉　明日の自分へ</a><a href="#settings">⚙　時間を整える</a></nav>
  <div class="side-bottom"><span class="eyebrow">ONE SMALL STEP</span><p>ひとつ進めて、ひと息。<br>帰ったあとの楽しみも、<br>今日の大事な予定です。</p><button class="ghost small" id="exportSide">記録を書き出す ↓</button><span id="saveStatus">このブラウザに保存</span></div>
 </aside>
 <main id="home">
- <header class="top"><div><div class="eyebrow">YOUR LITTLE DAILY COMPANION</div><h1>今日も、自分のペースで。</h1><p>朝の一歩から、仕事終わりの「楽しみ」まで。</p></div><div class="date-pill" id="today"></div></header>
+ <header class="top"><div><div class="eyebrow">MIKATA — YOUR DAILY COMPANION</div><h1>今日も、自分のペースで。</h1><p>朝の一歩から、仕事終わりの「楽しみ」まで。</p></div><div class="date-pill" id="today"></div></header>
+ <section class="buddy-banner" aria-live="polite"><div class="buddy-face" id="buddyFace" aria-hidden="true">◡</div><div><span class="eyebrow">MIKATAから、ひとこと</span><strong id="buddyMessage">来てくれただけで、今日の一歩。</strong><small id="buddyProgress"></small></div></section>
  <div id="storageWarning" class="storage-warning" hidden>このブラウザでは保存できません。入力内容は、閉じる前に「記録を書き出す」で保存してください。</div>
  <section class="card" id="cloudPanel" style="margin-bottom:20px">
  <div class="head"><h2>☁ スマホ・PCでつなぐ</h2><span class="chip" id="cloudStatus" role="status">この端末に保存</span></div>
  <p class="muted" style="font-size:12px" id="cloudMessage">同じアカウントでログインすると、メモ・予定・チェックを共有できます。</p>
  <div id="cloudLogin" hidden><form id="loginForm" class="row" style="margin-top:14px"><label style="flex:1;min-width:180px">メールアドレス<input type="email" id="loginEmail" autocomplete="email" required placeholder="you@example.com"></label><button type="submit" id="sendLink">ログインメールを送る</button></form><p class="muted" style="font-size:11px;margin-top:8px">メールのリンクは、ログインしたい端末で開いてください。</p></div>
- <div id="cloudAccount" hidden><div class="actions"><button id="syncNow">今すぐ同期</button><button class="ghost small" id="importLocal">この端末の記録を取り込む</button><button class="ghost small" id="signOut">ログアウト</button></div><small id="cloudIdentity"></small></div>
- <div class="actions"><label class="muted" style="font-size:12px">以前のHTMLから引き継ぐ：記録ファイルを取り込む<input id="importFile" type="file" accept=".json,application/json" style="margin-top:6px"></label></div>
- <details style="margin-top:12px" id="cloudSetup"><summary style="font-size:12px">初回の接続設定</summary><p class="muted" style="font-size:12px;margin-bottom:12px">同じSupabaseプロジェクトの情報を入力します。<a href="https://github.com/KVVNa/HAppy#スマホpc同期を有効にする" target="_blank" rel="noopener">セットアップ手順</a></p><form id="cloudConfigForm"><div class="settings-grid"><label class="span2">Project URL<input id="cloudUrl" type="url" placeholder="https://xxxxx.supabase.co" required></label><label class="span2">Publishable key<input id="cloudKey" type="text" placeholder="sb_publishable_…" required autocomplete="off"></label></div><p class="muted" style="font-size:11px;margin-top:9px">公開用キーのみを使用します。Secret key・service_roleキーは入力しないでください。</p><div class="actions"><button type="submit">接続設定を保存</button></div></form></details>
+ <div id="cloudAccount" hidden><div class="actions"><button id="syncNow">今すぐ同期</button><button class="ghost small" id="signOut">ログアウト</button></div><small id="cloudIdentity"></small></div>
+ <details style="margin-top:12px" id="cloudSetup"><summary style="font-size:12px">接続の詳細設定</summary><p class="muted" style="font-size:12px;margin-bottom:12px">Mikataの同期先は設定済みです。通常は変更不要です。</p><form id="cloudConfigForm"><div class="settings-grid"><label class="span2">Project URL<input id="cloudUrl" type="url" placeholder="https://xxxxx.supabase.co" required></label><label class="span2">Publishable key<input id="cloudKey" type="text" placeholder="sb_publishable_…" required autocomplete="off"></label></div><p class="muted" style="font-size:11px;margin-top:9px">公開用キーのみを使用します。Secret key・service_roleキーは入力しないでください。</p><div class="actions"><button type="submit">接続設定を保存</button></div></form><div class="advanced-import"><h3>以前の記録を引き継ぐ</h3><p class="muted">古いHTML版から書き出した記録、またはこの端末だけに残っている記録を取り込みます。</p><div class="actions"><button class="ghost small" id="importLocal">この端末の記録を取り込む</button><label class="file-button">JSONファイルを選ぶ<input id="importFile" type="file" accept=".json,application/json"></label></div></div></details>
 </section>
 <div class="layout">
   <section class="card hero" aria-label="今の道しるべ">
