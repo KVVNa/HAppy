@@ -12,7 +12,7 @@
 <div class="shell">
 <aside class="sidebar">
  <div><div class="brand"><span class="brand-icon" aria-hidden="true">◒</span>Mikata</div><p class="side-caption">朝から、ご褒美まで。</p></div>
- <nav class="nav" aria-label="ページ内メニュー"><a href="#home">◷　今日の道しるべ</a><a href="#morning">☀　朝の準備</a><a href="#work">✎　仕事に集中</a><a href="#tomorrow">✉　明日の自分へ</a><a href="#settings">⚙　時間を整える</a></nav>
+ <nav class="nav" aria-label="ページ内メニュー"><a href="#home">◷　今日の道しるべ</a><a href="#morning">☀　朝の準備</a><a href="#work">✎　仕事に集中</a><a href="#tomorrow">✉　明日の自分へ</a><a href="#bedtimePrep">☾　寝る前の支度</a><a href="#settings">⚙　時間を整える</a></nav>
  <div class="side-bottom"><span class="eyebrow">ONE SMALL STEP</span><p>ひとつ進めて、ひと息。<br>帰ったあとの楽しみも、<br>今日の大事な予定です。</p><button class="ghost small" id="exportSide">記録を書き出す ↓</button><span id="saveStatus">このブラウザに保存</span></div>
 </aside>
 <main id="home">
@@ -63,22 +63,26 @@
   </section>
   <section class="card mobile-wide" id="tomorrow">
    <div class="head"><h2>✉ 明日の自分へ</h2><span class="chip" id="noteTarget"></span></div>
-   <p class="muted" style="font-size:12px;margin-bottom:16px">今日はここまで。続きはメモに預けて帰ろう。</p>
+   <p class="muted" style="font-size:12px;margin-bottom:16px">仕事の続きを短く書いて、ここで仕事モードをおしまいに。</p>
    <div class="note-grid">
     <label><span class="field-label">次に開いたら、まずこれだけ</span><input id="nextAction" maxlength="200" placeholder="例：昨日の解析ノートを開いて、図3を確認する"></label>
     <label><span class="field-label">続き・気になること</span><textarea id="looseEnds" placeholder="途中の作業、待っている返事など"></textarea></label>
     <label><span class="field-label">今日、できたこと</span><textarea id="smallWin" placeholder="小さいことでOK。始められた、相談できた…"></textarea></label>
    </div>
-   <div class="night-list"><label><input type="checkbox" id="nightBag">持ち物をまとめる</label><label><input type="checkbox" id="nightClothes">明日の服を用意する</label></div>
    <div class="actions"><button id="finishDay">今日はここまで。帰ろう ↗</button><button class="ghost small" id="carryTasks">未完了をメモに入れる</button><button class="ghost small" id="historyOpen">過去のメモ</button></div>
    <p class="muted" style="font-size:11px;margin-top:12px" id="noteStatus">入力すると自動保存します。</p>
+  </section>
+  <section class="card bedtime-card" id="bedtimePrep">
+   <div class="head"><h2>☾ 寝る前の、明日支度</h2><span class="chip">できるときに、ひとつだけ</span></div>
+   <p class="muted bedtime-intro">仕事を閉じる時間とは別に。夜の自分が楽になる小さな仕込みを、余裕のあるときに。</p>
+   <div class="bedtime-plan"><span class="eyebrow">TONIGHT'S GENTLE REMINDER</span><h3 id="bedtime"></h3><p id="bedtimeHint"></p></div>
+   <div class="night-list"><label><input type="checkbox" id="nightBag">持ち物をまとめる</label><label><input type="checkbox" id="nightClothes">明日の服を用意する</label></div>
   </section>
   <section class="card garden">
    <div class="head"><h2>小さな、できたの庭</h2><span class="chip">この7日間</span></div>
    <p>朝の準備、集中、ひと区切り。<br>今日の小さな一歩が、花になります。</p>
    <div class="flowers" id="flowers"></div><div class="garden-summary" id="gardenSummary"></div>
    <p style="margin-top:10px">お休みの日は、そのままで。<br>また来た日から育てられます。</p>
-   <div style="border-top:1px solid #d4ddcf;margin-top:23px;padding-top:17px"><span class="eyebrow">MAKE SPACE FOR TOMORROW</span><h3 style="margin-top:8px" id="bedtime"></h3><p style="margin-top:8px" id="bedtimeHint"></p></div>
   </section>
   <section class="card wide" id="settings"><details><summary><div><h2>⚙ あなたの時間を整える</h2><p class="muted" style="font-size:12px;margin-top:4px">始業・通勤・朝の準備を、自分に合わせて。</p></div></summary>
    <form id="settingsForm"><div class="settings-grid">
